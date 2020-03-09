@@ -10,22 +10,6 @@ url = ('https://www.imdb.com/user/ur51298763/ratings?sort=date_'\
 		'djs5nyx6ixac3qfdajjg6bqac2wheaznk2ouqhjumdq6vdrv2pd4x3'\
 		'rats7f7appdrvwvo4p2yvgwhiztfo3u6u&lastPosition=0')
 
-response = get(url)
-soup = BeautifulSoup(response.text, 'html.parser')
-total_number_of_films = soup.find('span', id = 'lister-header-current-size')
-
-total_number_of_films = int(re.sub("[^0-9]", "", total_number_of_films.text))
-print(type(total_number_of_films))
-print(total_number_of_films)
-#movies = soup.find_all('div', class_ = 'lister-item-image ribbonize')
-
-#movie_ids = []
-
-
-#for movie in movies:
-#	movie_ids.append(movie['data-tconst'])
-
-#print(len(movie_ids))
 def main():
 	pass
 
