@@ -16,8 +16,7 @@ ratings_url = ('https://www.imdb.com/user/ur51298763/ratings?sort=date_'\
 #Tests whether imdb is up and the connection works
 def test_connection_to_imdb():
 	assert get(imdb_url).status_code == 200
-
-#Tests for test_round_down_nearest_100
+	
 def test_round_down_nearest_100_243():
 	assert round_down_nearest_100(243) == 200
 
