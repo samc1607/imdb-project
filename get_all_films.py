@@ -14,11 +14,16 @@ def main():
 	pass
 
 
+#Function that rounds numbers down to the nearest 100
+#Only for positive numbers
 def round_down_nearest_100(number):
 	number = math.floor(number/100.0)*100
 	return number
 
-
+#Finds the upper bound for the imdb list
+#The upper bound is the number used to 
+#find what the last page containing movies
+#starts with
 def find_upper_bound(number):
 	if number != 0:
 		if number % 100 == 0:
@@ -31,11 +36,12 @@ def get_soup(url):
 	response = get(url)
 	return BeautifulSoup(response.text, 'html.parser')
 
-
+#Checks whether the page is a ratings page
+#Or not
 def is_ratings(url):
 	return 'ratings' in url
 
-
+#Gets all the movie ids from a specific imdb page
 def get_movie_ids_from_page(soup):
 	movie_ids = []
 	movies = soup.find_all('div', class_ = 'lister-item-image ribbonize')
@@ -43,7 +49,7 @@ def get_movie_ids_from_page(soup):
 		movie_ids.append(movie['data-tconst'])
 	return movie_ids
 
-
+#Gets the total number of movies in a list/ratings page
 def get_total_number_of_movies(soup, ratings):
 	if ratings:
 		total_number_of_films = soup.find('span', id = 'lister-header-current-size')
@@ -54,4 +60,3 @@ def get_total_number_of_movies(soup, ratings):
 
 if __name__== "__main__":
   main()
-
