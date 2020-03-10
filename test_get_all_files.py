@@ -24,7 +24,7 @@ def test_get_movie_ids_from_page():
 	assert get_movie_ids_from_page(get_soup(test_list_url)) == ids
 
 def test_get_next_page_url():
-	pass
+	assert get_next_page_url(get_soup(ratings_url)) == rating_next_url
 
 def test_is_there_next_page_yes():
 	assert is_there_next_page(get_soup(ratings_url)) == True
