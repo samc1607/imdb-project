@@ -5,9 +5,11 @@ from random import randint
 import re
 import math
 
-url = ('https://www.imdb.com/user/ur51298763/ratings')
+imdb_url = 'https://www.imdb.com'
+url = 'https://www.imdb.com/user/ur51298763/ratings'
 
 def main():
+	pass
 	#movie_ids = []
 	#soup = get_soup(url + '0')
 	#total = get_total_number_of_movies(soup, is_ratings(url))
@@ -39,10 +41,13 @@ def get_movie_ids_from_page(soup):
 #	return int(re.sub("[^0-9]", "", total_number_of_films.text))
 
 def get_next_page_url(soup):
-	pass
+	return imdb_url + soup.find('a', class_ = 'flat-button lister-page-next next-page')['href']
 
 def is_there_next_page(soup):
-	pass
+	if soup.find('a', class_ = 'flat-button lister-page-next next-page') is not None:
+		return True
+	else:
+		return False
 
 if __name__== "__main__":
   main()
