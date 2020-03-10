@@ -1,7 +1,6 @@
 import pytest
 from requests import get
 from get_all_films import *
-import os.path
 
 #All URLs
 imdb_url = "https://www.imdb.com/"
@@ -14,6 +13,7 @@ rating_next_url = 'https://www.imdb.com/user/ur51298763/ratings?sort='\
 					'y4447iyfrvleknv4axfhhxudjs5nyx7yfaczqzbr564pajlx'\
 					'uqffl4f7yiuinvqyrr6wc5vkrduszupds7ann5wibi674uhs'\
 					'm3nia3ly7bqr&lastPosition=100'
+#Test IDs corresponding to ids of films in test_list_url
 ids = ['tt1675434', 'tt0482571', 'tt0055928']
 
 #Tests whether imdb is up and the connection works
