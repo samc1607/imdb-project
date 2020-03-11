@@ -32,4 +32,4 @@ test_json = '{"Title":"Titanic","Year":"1997","Rated":"PG-13",'\
 #	assert filecmp.cmp('test_json_file.json', 'created_json_file.json', shallow=False)
 
 def test_get_json_from_url():
-	assert get_json_from_url(url, ID) == test_json
+	assert get_json_from_url(ID) == test_json

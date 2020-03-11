@@ -9,7 +9,7 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 #list_url = 'https://www.imdb.com/list/ls092117658'
-omdb_api_url = "http://www.omdbapi.com/?apikey=35b37e66&i=tt0120338"
+#omdb_api_url = "http://www.omdbapi.com/?apikey=35b37e66&i=tt0120338"
 
 #def create_json_file(filename, url):
 #	json_file = ""
@@ -21,10 +21,9 @@ def main():
 #	print((get_json_from_url(omdb_api_url, 'tt0120338')))
 
 
-def get_json_from_url(url, ID):
-	url = url + ID
-	print(url)
-	return urllib.request.urlopen(url).read().decode()
+def get_json_from_url(ID):
+	omdb_api_url = "http://www.omdbapi.com/?apikey=35b37e66&i="
+	return urllib.request.urlopen(omdb_api_url + ID).read().decode()
 	
 
 if __name__ == "__main__":
