@@ -2,10 +2,12 @@ import pytest
 import json
 from get_film_data import *
 import filecmp
+import os
 
 
 url = 'http://www.omdbapi.com/?apikey=35b37e66&i='
-ID = 'tt0120338'
+test_list_url = 'https://www.imdb.com/list/ls092117658'
+imdb_id = 'tt0120338'
 test_json = '{"Title":"Titanic","Year":"1997","Rated":"PG-13",'\
 			'"Released":"19 Dec 1997","Runtime":"194 min","Gen'\
 			're":"Drama, Romance","Director":"James Cameron","'\
@@ -32,4 +34,9 @@ test_json = '{"Title":"Titanic","Year":"1997","Rated":"PG-13",'\
 #	assert filecmp.cmp('test_json_file.json', 'created_json_file.json', shallow=False)
 
 def test_get_json_from_omdb_api():
-	assert get_json_from_omdb_api(ID) == test_json
+	assert get_json_from_omdb_api(imdb_id) == test_json
+
+def test_create_json_file():
+	create_json_file('test_file', test_list_url)
+	assert filecmp.cmp('test_file.json', 'validation_file.json',shallow=False)
+	os.remove('test_file.json')
