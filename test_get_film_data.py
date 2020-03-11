@@ -31,5 +31,5 @@ test_json = '{"Title":"Titanic","Year":"1997","Rated":"PG-13",'\
 #	create_json_file('created_json_file', url)
 #	assert filecmp.cmp('test_json_file.json', 'created_json_file.json', shallow=False)
 
-def test_get_json_from_url():
-	assert get_json_from_url(ID) == test_json
+def test_get_json_from_omdb_api():
+	assert get_json_from_omdb_api(ID) == test_json

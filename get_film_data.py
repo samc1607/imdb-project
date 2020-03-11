@@ -21,7 +21,7 @@ def main():
 #	print((get_json_from_url(omdb_api_url, 'tt0120338')))
 
 
-def get_json_from_url(ID):
+def get_json_from_omdb_api(ID):
 	omdb_api_url = "http://www.omdbapi.com/?apikey=35b37e66&i="
 	return urllib.request.urlopen(omdb_api_url + ID).read().decode()
 	
