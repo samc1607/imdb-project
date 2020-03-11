@@ -21,10 +21,25 @@ def main():
 #	print((get_json_from_url(omdb_api_url, 'tt0120338')))
 
 
-def get_json_from_omdb_api(ID):
+def get_json_from_omdb_api(imdb_id):
 	omdb_api_url = "http://www.omdbapi.com/?apikey=35b37e66&i="
-	return urllib.request.urlopen(omdb_api_url + ID).read().decode()
+	return urllib.request.urlopen(omdb_api_url + imdb_id).read().decode()
 	
+
+def create_json_file(filename, url):
+	imdb_id_list = get_movies_from_url(url)
+	with open(filename + ".json", "w") as file:
+		file.write('{"movies":[')
+		first = True;
+		for imdb_id in imdb_id_list:
+			if(first):
+				file.write(get_json_from_omdb_api(imdb_id))
+				first = False
+			else:
+				file.write(', ')	
+				file.write(get_json_from_omdb_api(imdb_id))
+				
+		file.write(']}')
 
 if __name__ == "__main__":
 	main()
